@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista uczniów</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}" type="text/css">
+</head>
+<body class="p-3 mb-2 bg-dark text-white">
+
+    <div id="title">
+        <h1>Lista uczniów</h1>
+        <hr>
+    </div>
+    <a href="/losuj" class="btn btn-success">---->Losuj<----</a>
+<hr>
+
+    <table class="table table-striped text-white">
+        <thead>
+        <tr class="text-white">
+            <th>Numerek</th>
+            <th>Nieobecny</th>
+            <th>Nieprzygotowany</th>
+        </thead>
+        <tbody>
+        <tr class="result" data-th-each="ucz : ${list}">
+            <td th:text="${ucz.numer}"></td>
+
+            <td>
+                <span th:if="${ ucz.JestNieobecny}" >nieobecny</span>
+             <form th:unless="${ucz.JestNieobecny}"  method="post" th:action="@{/setAbsent}">
+                    <input type="hidden" th:name="numerUcznia" th:value="${ucz.numer}">
+                    <input type="submit" class="btn btn-danger" value="NIEOBECNY">
+                </form>
+            </td>
+
+            <td>
+            <span th:if="${ ucz.JestNieprzygotowany}" >nieprzygotowany</span>
+            <form th:unless="${ucz.JestNieprzygotowany}" method="post" th:action="@{setNp}">
+                    <input type="hidden" th:name="numerUcznia" th:value="${ucz.numer}">
+                    <input type="submit" class="btn btn-danger" value="NIEPRZYGOTOWANY">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

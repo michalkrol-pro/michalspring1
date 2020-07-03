@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj uczniów</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" type="text/css">
+</head>
+<body class="p-3 mb-2 bg-dark text-white">
+
+    <h2>Dodaj uczniów</h2>
+<hr>
+    <div class="form-group">
+        <form method="post" class="padding5px" action="#" th:action="@{/addStudents}">
+           <div>
+               <label>
+                  Podaj liczbę uczniów w klasie:
+                    <br>
+                   <input type="number" th:min="1" th:name="liczbaUczniow" >
+               </label>
+           </div>
+            <hr>
+            <input type="submit" class="btn btn-warning" value="Zapisz">
+        </form>
+        <hr>
+    </div>
+
+</div>
+</body>
+</html>

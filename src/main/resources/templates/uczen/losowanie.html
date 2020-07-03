@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body class="p-3 mb-2 bg-dark text-white">
+
+<h1 th:text=" 'Wylosowano ucznia o numerze: '" ></h1>
+<h1 th:text="  ${uczen.numer}" ></h1>
+<a href="/losuj" class="btn btn-primary">Losuj ponownie</a>
+
+</body>
+</html>
